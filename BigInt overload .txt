@@ -1,0 +1,42 @@
+large operator *(large& x){ // overload the * operator
+        /*
+            34 x 46
+            -------
+              204            // these values are stored in the
+             136            // two dimensional array mat[][];
+            -------
+             1564   // this the value stored in "large ret"
+        */                                
+        large ret;                
+        int carry=0;
+        int mat[2*SIZE+1][2*SIZE]={0};
+        for(int i=SIZE-1;i>=0;i--){
+            for(int j=SIZE-1;j>=0;j--){
+                carry += no[i]*x.no[j];
+                if(carry < 10){
+                    mat[i][j-(SIZE-1-i)]=carry;
+                    carry=0;
+                }
+                else{
+                    mat[i][j-(SIZE-1-i)]=carry%10;
+                    carry=carry/10;
+                }
+            }
+        }
+        for(int i=1;i<SIZE+1;i++){
+            for(int j=SIZE-1;j>=0;j--){
+                carry += mat[i][j]+mat[i-1][j];
+                if(carry < 10){
+                    mat[i][j]=carry;
+                    carry=0;
+                }
+                else{
+                    mat[i][j]=carry%10;
+                    carry=carry/10;
+                }
+            }
+        }
+        for(int i=0;i<SIZE;i++)
+            ret.no[i]=mat[SIZE][i];
+        return ret;
+    }
