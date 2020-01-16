@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1488860191 source:c:\users\203\desktop\c++\week2\card shuffle\function.cpp
+	"struct.h"
+
+1488858163 c:\users\203\desktop\c++\week2\card shuffle\struct.h
+	<iostream>
+	<time.h>
+	<cstdlib>
+
+1488860376 source:c:\users\203\desktop\c++\week2\card shuffle\main.cpp
+	"struct.h"
+
